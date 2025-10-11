@@ -1,0 +1,300 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SOBRE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Barra de navegação fixa no topo */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000;
+            z-index: 1000;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+    
+        body {
+            padding-top: 90px; /* Ajuste conforme a altura da sua barra */
+        }
+    
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+    
+        .navbar a:hover {
+            background-color: #575757;
+        }
+    
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90vh;
+            background-image: url('https://i.imgur.com/dumO7nE.jpeg'); /* Imagem de fundo para desktop */
+            background-size: cover;
+            background-position: center;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+            background-color: transparent; /* Garantir que o fundo seja transparente */
+        }
+    
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            height: 100%;
+            z-index: 2; /* Garantir que o conteúdo esteja sobre a imagem */
+        }
+    
+        .header-text {
+            color: white;
+            font-size: 4rem;
+            font-weight: bold;
+            margin-left: 20px;
+            z-index: 2; /* Garantir que o texto apareça por cima */
+        }
+    
+        .header-logo {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* Ajustes para cabeçalhos em dispositivos móveis */
+        @media (max-width: 768px) {
+            .header {
+                height: auto;
+                padding: 40px 20px;
+                background-image: url('https://i.imgur.com/mJb73i5.png'); /* Imagem de fundo para mobile */
+            }
+    
+            .header-text {
+                font-size: 2.5rem;
+                text-align: center; /* Alinha o texto ao centro em dispositivos móveis */
+                margin-left: 0; /* Remove a margem à esquerda no mobile */
+            }
+    
+            .header-logo {
+                width: 80px;
+                height: 80px;
+                margin-top: 20px;
+            }
+    
+            .header-content {
+                text-align: center;
+                padding-bottom: 40px; /* Adiciona espaçamento no fundo para o texto não ficar sobre a imagem */
+            }
+    
+ /* Estilo do menu mobile */
+ #mobile-menu {
+            position: absolute;
+            top: 90px; /* A posição de acordo com a altura da navbar */
+            left: 0;
+            background-color: #000;
+            width: 100%;
+            padding: 20px;
+            z-index: 1000;
+            display: none; /* Começa oculto */
+        }
+
+        #mobile-menu a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        #mobile-menu a:hover {
+            background-color: #575757;
+        }
+
+        /* Ícone do menu hamburguer */
+        .menu-toggle {
+            font-size: 36px; /* Tamanho maior */
+            color: white;
+            cursor: pointer;
+            z-index: 1100; /* Garantir que fique acima de outros elementos */
+        }
+
+        /* A animação de fade no menu */
+        #mobile-menu.show {
+            display: flex;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }}
+
+/* Tela branca inicial com transição rápida */
+#preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(7, 0, 0); /* Tela branca */
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 0.5s ease-out; /* Reduzi o tempo do fade-out */
+    }
+
+
+    /* Suaviza a transição da página, mas mais rápido */
+    body {
+        opacity: 0;
+        transition: opacity 0.4s ease-in; /* A página aparece um pouco antes do preloader sumir */
+    }
+
+    </style>
+    <script>
+        // Função para alternar a visibilidade do menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            // Verifica se o menu está visível
+            if (menu.classList.contains('show')) {
+                menu.classList.remove('show'); // Esconde o menu
+            } else {
+                menu.classList.add('show');    // Exibe o menu
+            }
+        }
+    </script>
+</head>
+<body>
+
+<!-- Preloader (Tela inicial com fade rápido) -->
+<div id="preloader" class="fixed top-0 left-0 w-full h-full bg-white z-50"></div>
+<!-- Barra de Navegação -->
+
+<div class="navbar bg-black text-white py-4 px-8">
+    <div class="flex items-center justify-between w-full">
+        <!-- Logo com link para voltar ao topo -->
+        <div class="flex items-center">
+            <a href="../index.html" class="flex items-center justify-center transform transition duration-300 ease-in-out hover:scale-110">
+                <img src="https://i.imgur.com/ckrjALt.png" class="w-16 h-16 rounded-full">
+            </a>
+        </div>
+
+        <!-- Navegação -->
+        <nav>
+            <ul class="hidden md:flex space-x-8 text-lg font-semibold">
+                <li><a href="#" class="transition duration-300">Sobre</a></li>
+                <li><a href="../Paginaprojetos/paginaprojetos.html" class="transition duration-300">Projetos</a></li>
+                <li><a href="../Paginaservicos/paginaservicos.html" class="transition duration-300">Serviços</a></li>
+                <li><a href="../Paginaparceiros/paginaparceiros.html" class="transition duration-300">Parceiros</a></li>
+                <li><a href="https://wa.me/5516992866834" class="transition duration-300">Contato</a></li>
+            </ul>
+
+            <!-- Menu mobile -->
+            <div class="md:hidden">
+                <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div> <!-- Ícone do menu -->
+                <div id="mobile-menu" class="hidden flex-col space-y-4 bg-black text-white p-4 absolute top-0 left-0 w-full z-10">
+                    <a href="#" class="py-2">Sobre</a>
+                    <a href="../Paginaprojetos/paginaprojetos.html" class="py-2">Projetos</a>
+                    <a href="../Paginaservicos/paginaservicos.html" class="py-2">Serviços</a>
+                    <a href="../Paginaparceiros/paginaparceiros.html" class="py-2">Parceiros</a>
+                    <a href="https://wa.me/5516992866834" class="py-2">Contato</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<!-- Cabeçalho -->
+<header class="header">
+    <div class="text-center md:text-left mb-8 md:mb-0">
+        <!-- Logo acima do título -->
+        <div class="flex justify-center md:justify-start mb-8 ml-20">
+            <div class="w-32 h-32 rounded-full flex items-center justify-center shadow-lg overflow-hidden">
+                <img src="Imagens-sobre/logo-jr.png" alt="Logo" class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        <!-- Título -->
+        <h1 class="text-6xl md:text-7xl font-extrabold  mb-6 md:ml-12 header-text">
+            SOBRE
+        </h1>
+    </div>
+</header>
+
+<!-- Primeira Seção -->
+<section id="secondSection" class="hidden-section bg-[#f3f3f5] py-16">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+        <!-- Conteúdo à esquerda -->
+        <div class="md:w-1/2 flex flex-col justify-center md:ml-12 mb-12 md:mb-0">
+            <!-- Título "QUEM SOMOS" alinhado à esquerda -->
+            <h1 class="text-5xl font-extrabold text-gray-800 mb-6">QUEM SOMOS</h1>
+            
+            <!-- Parágrafos alinhados à esquerda -->
+            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                Somos uma empresa especializada em instalações elétricas e hidráulicas, localizada em Américo Brasiliense/SP, trazendo inovação e qualidade para o mercado da engenharia. Nosso foco é oferecer mão de obra especializada para projetos novos, retrofits, consultorias e montagens — sempre com soluções rápidas e eficientes.
+            </p>
+            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                Com a experiência de nossos fundadores, que possuem uma bagagem sólida nas áreas de construção civil, indústria e energia, estamos aqui para agregar agilidade, modernidade e inovação aos seus projetos.
+            </p>
+            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                Acreditamos em soluções inteligentes e de alto desempenho, sempre aplicando engenharia de valor para entregar resultados que superem as expectativas dos nossos clientes. Nossa missão é transformar grandes ideias em grandes obras, garantindo uma execução de qualidade e sincronia total em todos os detalhes.
+            </p>
+        </div>
+
+        <!-- Imagem à direita -->
+        <div class="md:w-1/2 flex justify-center">
+            <img src="Imagens-sobre/img1parana.jpg" alt="Imagem sobre a empresa" class="w-4/5 h-auto object-cover rounded-lg transition-transform duration-500 hover:scale-105" />
+        </div>
+    </div>
+</section>
+
+<!-- Última Seção (Footer) -->
+<section id="SixSection" class="flex flex-col bg-black py-12">
+    <footer class="text-white p-8 flex justify-between items-center container mx-auto">
+        <!-- Logo -->
+        <div class="flex items-center">
+            <div class="w-24 h-24 flex items-center justify-center rounded-full shadow-lg overflow-hidden">
+                <img src="Imagens-sobre/logo-jr.png" class="w-full h-full object-cover rounded-full">
+            </div>
+        </div>
+
+        <!-- Informações de contato -->
+        <div class="text-left ml-8 mr-16 italic space-y-4">
+            <p class="text-lg">Endereço: Novo Américo - Américo Brasiliense - SP</p>
+            <p class="text-lg mb-1">Telefone: (16) 99286-6834</p>
+            <p class="text-lg">Email: jremontagens@gmail.com</p>
+        </div>
+    </footer>
+</section>
+
+<script>
+    window.addEventListener("load", function () {
+        document.getElementById("preloader").style.opacity = "0"; // Fade-out mais rápido
+        setTimeout(() => {
+            document.getElementById("preloader").style.display = "none"; // Remove a tela branca rapidamente
+            document.body.style.opacity = "1"; // Fade-in acelerado do conteúdo
+        }, 400); // Reduzi o tempo total para 0.4s
+    });
+</script>
+
+</body>
+</html>

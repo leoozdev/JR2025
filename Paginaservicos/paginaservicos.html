@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERVIÇOS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Barra de navegação fixa no topo */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000;
+            z-index: 1000;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        body {
+            padding-top: 60px;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        /* Fundo para desktop */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 93vh;
+    background-image: url('Imagens/img1bg.png'); /* Fundo para desktop */
+    background-size: cover;
+    background-position: center;
+    padding: 0 20px;
+}
+
+/* Fundo para mobile */
+@media (max-width: 768px) {
+    .header {
+        background-image: url('https://i.imgur.com/xwg2pV0.png'); /* Fundo para mobile */
+    }
+
+    /* Outras mudanças de estilo para mobile (se necessário) */
+    .header-text {
+        font-size: 2rem;
+    }
+
+    .header-content {
+        text-align: center;
+    }
+
+    .header-logo {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .header-text {
+            color: white;
+            font-size: 4rem;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        .header-logo {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* Definir a animação de fade */
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Aplicando animação às imagens */
+        .fade-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            animation: fadeInOut 10s infinite;
+        }
+
+        /* Definir um tempo de início diferente para cada imagem */
+        #img1 {
+            animation-delay: 0s;
+        }
+        #img2 {
+            animation-delay: 2s;
+        }
+        #img3 {
+            animation-delay: 4s;
+        }
+        #img4 {
+            animation-delay: 6s;
+        }
+        #img5 {
+            animation-delay: 8s;
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+            }
+
+            .navbar .menu-toggle {
+                display: block;
+                cursor: pointer;
+                font-size: 24px;
+                color: white;
+            }
+
+            .navbar.active ul {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background-color: #000;
+                text-align: center;
+            }
+
+            .navbar.active ul li {
+                padding: 14px 0;
+            }
+
+            .navbar.active ul li a {
+                color: white;
+                font-size: 18px;
+            }
+
+            /* Ajuste para o cabeçalho em telas pequenas */
+            .header-text {
+                font-size: 2rem;
+            }
+
+            .header-content {
+                text-align: center;
+            }
+
+            .header-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            /* Ajuste para imagens */
+            .fade-image {
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+                object-fit: cover;
+            }
+
+            /* Ajuste no container da imagem */
+            .image-container {
+                width: 100%;
+                height: auto;
+            }
+}
+             /* Título para desktop */
+           .header-text {
+             font-size: 4rem;
+             font-weight: bold;
+             margin-left: 20px;
+}
+
+              /* Esconder o título para telas móveis */
+            @media (max-width: 768px) {
+            .header-text {
+            display: none !important; /* Esconde o título nas telas pequenas */
+    }
+}
+             /* Logo para desktop */
+            .header-logo {
+            display: block; /* Exibe a logo para desktop */
+}
+
+              /* Esconder logo para telas móveis */
+           @media (max-width: 768px) {
+           .header-logo {
+           display: none !important; /* Esconde a logo nas telas pequenas */
+    }
+}
+
+
+/* Ajustes para telas menores que 700px (mobile) */
+@media (max-width: 700px) {
+    /* Contêiner da imagem */
+    .image-container {
+        width: 100%; /* As imagens vão ocupar toda a largura da tela no mobile */
+        height: 50vh; /* Ajusta a altura das imagens para 50% da altura da tela */
+        margin: 0 auto; /* Centraliza as imagens */
+    }
+
+    /* Imagens dentro do contêiner */
+    .fade-image {
+        width: 100%; /* A imagem ocupará toda a largura do contêiner */
+        height: 100%; /* A imagem terá a altura ajustada para 100% da altura do contêiner */
+        object-fit: cover; /* Garante que a imagem cubra o espaço do contêiner sem distorcer */
+        object-position: center center; /* Garante que a imagem seja centrada dentro do contêiner */
+    }
+}
+
+/* Ajustes para telas maiores (desktop) */
+.image-container {
+    width: 100%;
+    max-width: 600px; /* Limita a largura das imagens no desktop */
+    height: auto; /* A altura será proporcional à largura */
+    margin: 0 auto; /* Centraliza as imagens */
+}
+
+.fade-image {
+    width: 100%;
+    height: auto; /* A altura se ajusta automaticamente para manter a proporção */
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+/* Estilo do menu mobile */
+#mobile-menu {
+            position: absolute;
+            top: 90px; /* A posição de acordo com a altura da navbar */
+            left: 0;
+            background-color: #000;
+            width: 100%;
+            padding: 20px;
+            z-index: 1000;
+            display: none; /* Começa oculto */
+        }
+
+
+        #mobile-menu a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+
+        #mobile-menu a:hover {
+            background-color: #575757;
+        }
+
+
+        /* Ícone do menu hamburguer */
+        .menu-toggle {
+            font-size: 36px; /* Tamanho maior */
+            color: white;
+            cursor: pointer;
+            z-index: 1100; /* Garantir que fique acima de outros elementos */
+        }
+
+
+        /* A animação de fade no menu */
+        #mobile-menu.show {
+            display: flex;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+
+    /* Ajuste para o cabeçalho em telas pequenas */
+    .header-text {
+        font-size: 2rem;
+    }
+
+    .header-content {
+        text-align: center;
+    }
+
+    .header-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* Ajuste para imagens */
+    .fade-image {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        object-fit: cover;
+    }
+
+/* Ajustes para as imagens no desktop */
+.image-container {
+    width: 100%;
+    height: auto;
+    position: relative;
+    max-width: 600px; /* Limita a largura das imagens no desktop */
+    margin: 0 auto; /* Centraliza as imagens */
+}
+
+.fade-image {
+    width: 100%;
+    height: auto; /* Mantém a altura proporcional */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Ajustes para telas menores que 768px (mobile) */
+@media (max-width: 768px) {
+    .image-container {
+        width: 100%; /* As imagens vão ocupar toda a largura da tela no mobile */
+        height: 300px; /* Definindo uma altura específica para o mobile */
+        margin: 0 auto; /* Centraliza as imagens */
+    }
+
+    .fade-image {
+        width: 100%;
+        height: 100%; /* Ajusta para cobrir toda a altura do container */
+        object-fit: cover; /* Garante que a imagem cubra o espaço sem distorção */
+        object-position: center center; /* Garante que o centro da imagem seja visível */
+    }
+}
+/* Tela branca inicial com transição rápida */
+#preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(7, 0, 0); /* Tela branca */
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 0.5s ease-out; /* Reduzi o tempo do fade-out */
+    }
+
+
+    /* Suaviza a transição da página, mas mais rápido */
+    body {
+        opacity: 0;
+        transition: opacity 0.4s ease-in; /* A página aparece um pouco antes do preloader sumir */
+    }
+
+
+
+    </style>
+    <script>
+        // Função para alternar a visibilidade do menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            // Verifica se o menu está visível
+            if (menu.classList.contains('show')) {
+                menu.classList.remove('show'); // Esconde o menu
+            } else {
+                menu.classList.add('show');    // Exibe o menu
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+<!-- Preloader (Tela inicial com fade rápido) -->
+<div id="preloader" class="fixed top-0 left-0 w-full h-full bg-white z-50"></div>
+
+ <!-- Barra de Navegação -->
+<div class="navbar bg-black text-white py-4 px-8">
+    <div class="flex items-center justify-between w-full">
+        <!-- Logo com link para voltar ao topo -->
+        <div class="flex items-center">
+            <a href="../index.html" class="flex items-center justify-center transform transition duration-300 ease-in-out hover:scale-110">
+                <img src="Imagens/logo-jr.png" class="w-16 h-16 rounded-full">
+            </a>
+        </div>
+
+
+        <!-- Navegação -->
+        <nav>
+            <ul class="hidden md:flex space-x-8 text-lg font-semibold">
+                <li><a href="../Paginasobre/Paginasobre.html" class="transition duration-300">Sobre</a></li>
+                <li><a href="../Paginaprojetos/paginaprojetos.html" class="transition duration-300">Projetos</a></li>
+                <li><a href="#" class="transition duration-300">Serviços</a></li>
+                <li><a href="../Paginaparceiros/paginaparceiros.html" class="transition duration-300">Parceiros</a></li>
+                <li><a href="https://wa.me/5516992866834" class="transition duration-300">Contato</a></li>
+            </ul>
+
+
+            <!-- Menu mobile -->
+            <div class="md:hidden">
+                <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div> <!-- Ícone do menu -->
+                <div id="mobile-menu" class="hidden flex-col space-y-4 bg-black text-white p-4 absolute top-0 left-0 w-full z-10">
+                    <a href="../Paginasobre/Paginasobre.html" class="py-2">Sobre</a>
+                    <a href="../Paginaprojetos/paginaprojetos.html" class="py-2">Projetos</a>
+                    <a href="#" class="py-2">Serviços</a>
+                    <a href="../Paginaparceiros/paginaparceiros.html" class="py-2">Parceiros</a>
+                    <a href="https://wa.me/5516992866834" class="py-2">Contato</a> 
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+
+<!-- Cabeçalho -->
+<header class="header bg-[#f9f9f9] py-16">
+    <div class="flex justify-end items-center w-full">
+        <div class="flex flex-col items-end mr-60">
+            <!-- Logo acima do título -->
+ <!-- Logo -->
+<div class="w-32 h-32 rounded-full flex items-center justify-center shadow-lg overflow-hidden mb-8 header-logo">
+    <img src="Imagens/logo-jr.png" alt="Logo" class="w-full h-full object-cover">
+</div>
+
+
+            <!-- Título -->
+            <h1 class="header-text text-6xl md:text-7xl font-extrabold text-gray-800 mb-6" style="display: block;">
+                SERVIÇOS
+            </h1>
+            
+        </div>
+    </div>
+</header>
+
+<!-- Primeira Seção -->
+<section id="secondSection" class="hidden-section bg-[#f3f3f5] py-16">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row-reverse justify-between items-center">
+        <!-- Conteúdo à direita -->
+        <div class="md:w-1/2 flex flex-col justify-center md:mr-12 mb-12 md:mb-0">
+            <!-- Título "PROJETO" -->
+            <h1 class="text-4xl font-extrabold text-gray-800 mb-6 tracking-tight">NOSSOS SERVIÇOS</h1>
+            
+            <!-- Descrição do projeto -->
+            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                Com mais de uma década de experiência no mercado, somos especialistas em instalações elétricas e hidráulicas, oferecendo soluções eficientes e de alta qualidade. Atuamos com foco na segurança e na durabilidade das instalações, sempre respeitando as normas e regulamentos técnicos. Além disso, nossa equipe está constantemente atualizada com as últimas inovações e melhores práticas do setor.            
+            </p>
+            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                Expandimos nosso portfólio ao longo dos anos, realizando projetos não apenas no setor de instalações, mas também em áreas como construção civil, indústria e energia. Trabalhamos de forma personalizada, atendendo às necessidades específicas de cada cliente e adaptando nossas soluções para garantir a máxima performance e economia. Nossa abordagem prática e inovadora garante a satisfação completa em cada entrega.            
+            </p>
+            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                Acreditamos que o diferencial está na qualificação da nossa mão de obra. Contamos com uma equipe altamente capacitada e experiente, pronta para atender aos desafios mais complexos com eficiência e profissionalismo. Seja na instalação ou na manutenção, garantimos a execução impecável de cada projeto, com respeito aos prazos e orçamentos estabelecidos.            
+            </p>
+        </div>
+
+        <!-- Imagens com efeito fade à esquerda -->
+        <div class="image-container w-2/2 h-96 ">
+            <img src="Imagens/img1parana.jpg" class="fade-image w-full h-full object-cover rounded-xl shadow-lg " id="img1" />
+            <img src="Imagens/img2parana.jpg" class="fade-image w-full h-full object-cover rounded-xl shadow-lg" id="img2" />
+            <img src="Imagens/img3parana.jpg" class="fade-image w-full h-full object-cover rounded-xl shadow-lg" id="img3" />
+            <img src="Imagens/img4parana.jpg" class="fade-image w-full h-full object-cover rounded-xl shadow-lg" id="img4" />
+            <img src="Imagens/img6parana.jpg" class="fade-image w-full h-full object-cover rounded-xl shadow-lg" id="img5" />
+        </div>
+    </div>
+</section>
+
+<!-- Última Seção (Footer) -->
+<section id="SixSection" class="flex flex-col bg-black py-12">
+    <footer class="text-white p-8 flex justify-between items-center container mx-auto">
+        <!-- Logo -->
+        <div class="flex items-center">
+            <div class="w-24 h-24 flex items-center justify-center rounded-full shadow-lg overflow-hidden">
+                <img src="Imagens/logo-jr.png" class="w-full h-full object-cover rounded-full">
+            </div>
+        </div>
+
+        <!-- Informações de contato -->
+        <div class="text-left ml-8 mr-16 italic space-y-4">
+            <p class="text-lg">Endereço: Novo Américo - Américo Brasiliense - SP</p>
+            <p class="text-lg mb-1">Telefone: (16) 99286-6834</p>
+            <p class="text-lg">Email: jremontagens@gmail.com</p>
+        </div>
+    </footer>
+</section>
+
+<script>
+    window.addEventListener("load", function () {
+        document.getElementById("preloader").style.opacity = "0"; // Fade-out mais rápido
+        setTimeout(() => {
+            document.getElementById("preloader").style.display = "none"; // Remove a tela branca rapidamente
+            document.body.style.opacity = "1"; // Fade-in acelerado do conteúdo
+        }, 400); // Reduzi o tempo total para 0.4s
+    });
+</script>
+
+</body>
+</html>

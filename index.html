@@ -1,0 +1,362 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JR - Montagens Industriais</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+     
+      /* Barra de navegação fixa no topo */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000;
+            z-index: 1000;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        
+
+        /* Estilo para os links da barraa */
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        /* Estilo do menu mobile */
+        #mobile-menu {
+            position: absolute;
+            top: 90px; /* A posição de acordo com a altura da navbar */
+            left: 0;
+            background-color: #000;
+            width: 100%;
+            padding: 20px;
+            z-index: 1000;
+            display: none; /* Começa oculto */
+        }
+
+        #mobile-menu a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        #mobile-menu a:hover {
+            background-color: #575757;
+        }
+
+        /* Ícone do menu hamburguer */
+        .menu-toggle {
+            font-size: 36px; /* Tamanho maior */
+            color: white;
+            cursor: pointer;
+            z-index: 1100; /* Garantir que fique acima de outros elementos */
+        }
+
+        /* A animação de fade no menu */
+        #mobile-menu.show {
+            display: flex;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+ /* Tela branca inicial com transição rápida */
+ #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(7, 0, 0); /* Tela branca */
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 0.5s ease-out; /* Reduzi o tempo do fade-out */
+    }
+
+    /* Suaviza a transição da página, mas mais rápido */
+    body {
+        opacity: 0;
+        transition: opacity 0.4s ease-in; /* A página aparece um pouco antes do preloader sumir */
+    }
+    </style>
+    <script>
+        // Função para alternar a visibilidade do menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            // Verifica se o menu está visível
+            if (menu.classList.contains('show')) {
+                menu.classList.remove('show'); // Esconde o menu
+            } else {
+                menu.classList.add('show');    // Exibe o menu
+            }
+        }
+    </script>
+</head>
+<body>
+
+<!-- Preloader (Tela inicial com fade rápido) -->
+<div id="preloader" class="fixed top-0 left-0 w-full h-full bg-white z-50"></div>
+
+
+<script>
+    window.addEventListener("load", function () {
+        document.getElementById("preloader").style.display = "none";
+    });
+</script>
+<!-- Barra de Navegação -->
+<div class="navbar bg-black text-white py-4 px-8">
+    <div class="flex items-center justify-between w-full">
+     <!-- Logo com link para voltar ao topo -->
+        <div class="flex items-center">
+            <a href="#top" class="flex items-center justify-center">
+                <img src="Imagens/logo-jr.png" class="w-16 h-16 rounded-full">
+            </a>
+        </div>   
+
+        <!-- Navegação -->
+        <nav>
+            <ul class="hidden md:flex space-x-8 text-lg font-semibold">
+                <li><a href="/Paginasobre/Paginasobre.html" class="transition duration-300">Sobre</a></li>
+                <li><a href="/Paginaprojetos/paginaprojetos.html " class="transition duration-300">Projetos</a></li>
+                <li><a href="/Paginaservicos/paginaservicos.html" class="transition duration-300">Serviços</a></li>
+                <li><a href="/Paginaparceiros/paginaparceiros.html" class="transition duration-300">Parceiros</a></li>
+                <li><a href="https://wa.me/5516992866834" class="transition duration-300">Contato</a></li>
+            </ul>
+
+            <!-- Menu mobile -->
+            <div class="md:hidden">
+                <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div> <!-- Ícone do menu -->
+                <div id="mobile-menu" class="hidden flex-col space-y-4 bg-black text-white p-4 absolute top-0 left-0 w-full z-10">
+                    <a href="/Paginasobre/Paginasobre.html" class="py-2">Sobre</a>
+                    <a href="/Paginaprojetos/paginaprojetos.html" class="py-2">Projetos</a>
+                    <a href="/Paginaservicos/paginaservicos.html" class="py-2">Serviços</a>
+                    <a href="/Paginaparceiros/paginaparceiros.html" class="py-2">Parceiros</a>
+                    <a href="https://wa.me/5516992866834" class="py-2">Contato</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<!-- Cabeçalho -->
+<header class="relative">
+    <img alt="Indústria" class="w-full h-screen object-cover" src="Imagens/background 1.jpeg"/>
+    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col items-center justify-center px-4">
+        <!-- Logo acima do título -->
+        <div class="flex justify-center mb-6">
+            <img src="Imagens/logo-jr.png" alt="Logo da JR Montagens" class="w-32 h-32 object-cover rounded-full shadow-lg transform transition-all duration-300 hover:scale-110">
+        </div>
+        <h1 class="text-white text-3xl md:text-5xl font-bold text-center mb-6">QUALIDADE EM QUE VOCÊ PODE CONFIAR</h1>
+        <a href="https://wa.me/5516992866834?text=...">
+            <button class="mt-6 px-8 py-4 bg-white text-black font-semibold rounded-full shadow-md hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
+                Faça seu orçamento
+            </button>
+        </a>
+    </div>
+</header>
+
+<!-- Seções do conteúdo -->
+
+
+
+
+
+
+
+<!-- Primeira Seção (Sobre) -->
+<section id="secondSection" class="hidden-section bg-[#f3f3f5] py-16">
+    <div class="text-center max-w-3xl mx-auto p-4">
+        <!-- Logo no topo, logo abaixo da barra de navegação -->
+        <div class="flex justify-center mb-8">
+            <img src="Imagens/logo-jr.png" alt="Logo da JR Montagens" class="w-40 h-40 object-cover rounded-full shadow-lg">
+        </div>
+
+        <!-- Título e subtítulo -->
+        <h1 class="text-6xl font-extrabold text-gray-800 mb-4">SOBRE</h1>
+        <h2 class="text-4xl font-semibold text-gray-600 mb-6">JR - MONTAGENS</h2>
+
+        <!-- Parágrafo com borda suave -->
+        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+            Somos uma empresa especializada em instalações elétricas e hidráulicas, localizada em Américo Brasiliense/SP. Oferecemos serviços em novos projetos, retrofits, consultorias e montagens, sempre com mão de obra qualificada. Com vasta experiência de nossos fundadores nas áreas de construção civil, indústria e energia, proporcionamos soluções ágeis, modernas e inovadoras. Nosso compromisso é entregar obras de alta qualidade, superando as expectativas de nossos clientes, com foco em engenharia de valor e sincronia total no desenvolvimento de grandes projetos.
+        </p>
+
+        <!-- Botão com efeito de hover -->
+     <a href="/Paginasobre/Paginasobre.html">
+        <button class="bg-black text-white py-3 px-8 rounded-full text-xl font-semibold hover:bg-gray-700 transition duration-300 ease-in-out">
+            Leia mais
+        </button>
+    </a>
+    </div>
+</section>
+
+    
+<!-- Terceira Seção - Projetos -->
+<section id="thirdSection" class="hidden-section bg-black flex flex-col items-center justify-center min-h-screen py-16">
+    <h1 class="text-white text-6xl font-bold mb-12 text-center">PROJETOS</h1>
+    <div class="flex flex-wrap justify-center gap-8 mb-8">
+        
+        <!-- Projeto 1 -->
+        <div class="flex flex-col items-center text-center w-80 hover:scale-105 transform transition-all duration-300">
+            <img alt="Industrial equipment with multiple pipes and valves" class="w-full h-56 object-cover rounded-xl shadow-lg" src="https://i.imgur.com/3k9FAQB.jpeg" />
+            <p class="text-white mt-4 text-lg font-semibold">Montagem Compressora de Amônia Lactalis Paraná</p>
+        </div>
+
+        <!-- Projeto 2 -->
+        <div class="flex flex-col items-center text-center w-80 hover:scale-105 transform transition-all duration-300">
+            <img alt="Electrical panel with various colored wires" class="w-full h-56 object-cover rounded-xl shadow-lg" src="Paginaprojetos/Imagens/poraocabos.jpg" />
+            <p class="text-white mt-4 text-lg font-semibold">Biometano Santa Cruz</p>
+        </div>
+
+        <!-- Projeto 3 -->
+        <div class="flex flex-col items-center text-center w-80 hover:scale-105 transform transition-all duration-300">
+            <img alt="Close-up of an electrical panel with organized wiring" class="w-full h-56 object-cover rounded-xl shadow-lg" src="Paginaprojetos/Imagens/iluminacaobarraco.jpg"/>
+            <p class="text-white mt-4 text-lg font-semibold">Empresa Delo Enganharia</p>
+        </div>
+
+    </div>
+   <a href="/Paginaprojetos/paginaprojetos.html">
+      <button class="bg-white text-black py-3 px-12 rounded text-xl font-semibold transition-all duration-300 hover:bg-gray-200">
+        Veja mais
+      </button>
+    </a> 
+</section>
+
+<!-- Quarta Seção - Serviços -->
+<section id="fourthSection" class="hidden-section bg-[#f9f9f9] py-20">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+        <!-- Texto à esquerda -->
+        <div class="md:w-1/2 mb-8 md:mb-0">
+            <h1 class="text-5xl font-extrabold text-gray-800 mb-6">SERVIÇOS</h1>
+            <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                Somos especializados em instalações elétricas e hidráulicas, mas ao longo dos anos, realizamos diversos projetos em diferentes setores, como construção civil, indústria e energia. Nossa equipe é flexível, com competência em todas as áreas do trabalho de instalação e manutenção.
+            </p>
+            <!-- Botão "Veja mais" com link para a página -->
+            <a href="Paginaservicos/paginaservicos.html">
+                <button class="bg-black text-white py-3 px-10 rounded-full text-xl font-semibold transition duration-300 ease-in-out hover:bg-gray-700 hover:scale-105">
+                    Veja mais
+                </button>
+            </a>
+        </div>
+
+        <!-- Texto à direita -->
+        <div class="md:w-1/2 flex flex-col justify-center md:ml-16 space-y-12">
+            <!-- Serviço 1 -->
+            <div class="flex items-center hover:bg-gray-100 py-4 px-6 rounded-lg transition-all duration-300">
+                <h2 class="text-5xl font-extrabold text-gray-800 mr-6">01</h2>
+                <p class="text-lg font-semibold text-gray-800">Especialização em Instalações Elétricas e Hidráulicas</p>
+            </div>
+
+            <!-- Serviço 2 -->
+            <div class="flex items-center hover:bg-gray-100 py-4 px-6 rounded-lg transition-all duration-300">
+                <h2 class="text-5xl font-extrabold text-gray-800 mr-6">02</h2>
+                <p class="text-lg font-semibold text-gray-800">Inovação e Modernização em Projetos</p>
+            </div>
+
+            <!-- Serviço 3 -->
+            <div class="flex items-center hover:bg-gray-100 py-4 px-6 rounded-lg transition-all duration-300">
+                <h2 class="text-5xl font-extrabold text-gray-800 mr-6">03</h2>
+                <p class="text-lg font-semibold text-gray-800">Mão de Obra Qualificada e Experiente</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    
+<!-- Quinta Seção - Parceiros -->
+<section id="FiveSection" class="bg-gray-70 font-sans py-16">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+        
+        <!-- Grid de imagens -->
+        <div class="md:w-1/2 flex flex-wrap justify-center mb-8 md:mb-0">
+            <div class="p-4 text-center w-48 h-32 mb-6 transform transition duration-300 hover:scale-105">
+                <img src="Imagens/logo1.png" alt="Parceiro 2" class="w-full h-full object-contain rounded-lg shadow-lg">
+            </div>
+            <div class="p-4 text-center w-48 h-32 mb-6 transform transition duration-300 hover:scale-105">
+                <img src="Imagens/logo2.png" alt="Parceiro 3" class="w-full h-full object-contain rounded-lg shadow-lg">
+            </div>
+            <div class="p-4 text-center w-48 h-32 mb-6 transform transition duration-300 hover:scale-105">
+                <img src="Imagens/logo3.png" alt="Parceiro 4" class="w-full h-full object-contain rounded-lg shadow-lg">
+            </div>
+            <div class="p-4 text-center w-48 h-32 mb-6 transform transition duration-300 hover:scale-105">
+                <img src="Imagens/logo4.png" alt="Parceiro 5" class="w-full h-full object-contain rounded-lg shadow-lg">
+            </div>
+            <div class="p-4 text-center w-48 h-32 mb-6 transform transition duration-300 hover:scale-105">
+                <img src="Imagens/logo5.png" alt="Parceiro 6" class="w-full h-full object-contain rounded-lg shadow-lg">
+            </div>
+        </div>
+
+        <!-- Descrição da seção -->
+        <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+            <h1 class="text-6xl font-extrabold text-gray-800 mb-6">PARCEIROS</h1>
+            <p class="text-lg text-gray-700 mb-4 leading-relaxed">
+                A JR MONTAGENS INDUSTRIAIS é orgulhosamente aliada a instituições de prestígio no setor industrial, garantindo excelência e qualidade em cada projeto.
+            </p>
+            <p class="text-lg text-gray-700 mb-16 leading-relaxed">
+                Confira abaixo algumas das nossas parcerias de destaque:
+            </p>
+
+            <!-- Botão abaixo do texto -->
+            <a href="Paginaparceiros/paginaparceiros.html">
+                <button class="bg-black text-white py-3 px-10 rounded-full text-xl font-semibold transition duration-300 ease-in-out hover:bg-gray-700 hover:scale-105">
+                    Saiba Mais
+                </button>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Última parte -->
+<section id="SixSection" class="flex flex-col bg-black py-10">
+    <div class="flex-grow"></div>
+    <footer class="text-white p-8 flex justify-between items-center container mx-auto">
+        <!-- Logo -->
+        <div class="flex items-center">
+            <div class="w-24 h-24 flex items-center justify-center rounded-full shadow-lg overflow-hidden">
+                <img src="Imagens/logo-jr.png" class="w-full h-full object-cover rounded-full">
+            </div>
+        </div>
+
+        <!-- Informações de contato -->
+        <div class="text-left ml-8 mr-16 italic space-y-4">
+            <p class="text-lg">Endereço: Novo Américo - Américo Brasiliense - SP</p>
+            <p class="text-lg mb-1">Telefone: (16) 99286-6834</p>
+            <p class="text-lg">Email: jremontagens@gmail.com</p>
+        </div>
+    </footer>
+</section>
+<script>
+    window.addEventListener("load", function () {
+        document.getElementById("preloader").style.opacity = "0"; // Fade-out mais rápido
+        setTimeout(() => {
+            document.getElementById("preloader").style.display = "none"; // Remove a tela branca rapidamente
+            document.body.style.opacity = "1"; // Fade-in acelerado do conteúdo
+        }, 400); // Reduzi o tempo total para 0.4s
+    });
+</script>
+
+
+
+</body>
+</html>

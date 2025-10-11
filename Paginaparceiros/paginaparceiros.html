@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARCEIROS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Barra de navegação fixa no topo */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000;
+            z-index: 1000;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        body {
+            padding-top: 90px; /* Ajuste conforme a altura da sua barra */
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80vh; /* Ajuste a altura do cabeçalho */
+            background-image: url('Imagens/bgone.png');
+            background-size: cover;
+            background-position: center;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Alinha à esquerda */
+            justify-content: center;
+            height: 100%;
+        }
+
+        .header-text {
+            color: white;
+            font-size: 4rem;
+            font-weight: bold;
+            margin-left: 20px; /* Desloca o título para a direita */
+        }
+
+        .header-logo {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px; /* Adiciona espaço entre o título e a logo */
+        }
+
+        /* Estilo do menu mobile */
+        #mobile-menu {
+            position: absolute;
+            top: 90px; /* A posição de acordo com a altura da navbar */
+            left: 0;
+            background-color: #000;
+            width: 100%;
+            padding: 20px;
+            z-index: 1000;
+            display: none; /* Começa oculto */
+        }
+
+
+        #mobile-menu a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+
+        #mobile-menu a:hover {
+            background-color: #575757;
+        }
+
+
+        /* Ícone do menu hamburguer */
+        .menu-toggle {
+            font-size: 36px; /* Tamanho maior */
+            color: white;
+            cursor: pointer;
+            z-index: 1100; /* Garantir que fique acima de outros elementos */
+        }
+
+
+        /* A animação de fade no menu */
+        #mobile-menu.show {
+            display: flex;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+
+
+            /* Ajuste para o cabeçalho em telas pequenas */
+            .header-text {
+                font-size: 2rem;
+            }
+
+            .header-content {
+                text-align: center;
+            }
+
+            .header-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            /* Ajuste para imagens */
+            .fade-image {
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+                object-fit: cover;
+            }
+
+            /* Ajuste no container da imagem */
+            .image-container {
+                width: 100%;
+                height: auto;
+            }
+        
+/* Tela branca inicial com transição rápida */
+#preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(7, 0, 0); /* Tela branca */
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 0.5s ease-out; /* Reduzi o tempo do fade-out */
+    }
+
+
+    /* Suaviza a transição da página, mas mais rápido */
+    body {
+        opacity: 0;
+        transition: opacity 0.4s ease-in; /* A página aparece um pouco antes do preloader sumir */
+    }
+
+    </style>
+    <script>
+        // Função para alternar a visibilidade do menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            // Verifica se o menu está visível
+            if (menu.classList.contains('show')) {
+                menu.classList.remove('show'); // Esconde o menu
+            } else {
+                menu.classList.add('show');    // Exibe o menu
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+<!-- Preloader (Tela inicial com fade rápido) -->
+<div id="preloader" class="fixed top-0 left-0 w-full h-full bg-white z-50"></div>
+
+<!-- Barra de Navegação -->
+<div class="navbar bg-black text-white py-4 px-8">
+    <div class="flex items-center justify-between w-full">
+        <!-- Logo com link para voltar ao topo -->
+        <div class="flex items-center">
+            <a href="../index.html" class="flex items-center justify-center transform transition duration-300 ease-in-out hover:scale-110">
+                <img src="Imagens/logo-jr.png" class="w-16 h-16 rounded-full">
+            </a>
+        </div>
+
+
+        <!-- Navegação -->
+        <nav>
+            <ul class="hidden md:flex space-x-8 text-lg font-semibold">
+                <li><a href="../Paginasobre/Paginasobre.html" class="transition duration-300">Sobre</a></li>
+                <li><a href="../Paginaprojetos/paginaprojetos.html" class="transition duration-300">Projetos</a></li>
+                <li><a href="../Paginaservicos/paginaservicos.html" class="transition duration-300">Serviços</a></li>
+                <li><a href="#" class="transition duration-300">Parceiros</a></li>
+                <li><a href="https://wa.me/5516992866834" class="transition duration-300">Contato</a></li>
+            </ul>
+
+
+            <!-- Menu mobile -->
+            <div class="md:hidden">
+                <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div> <!-- Ícone do menu -->
+                <div id="mobile-menu" class="hidden flex-col space-y-4 bg-black text-white p-4 absolute top-0 left-0 w-full z-10">
+                    <a href="../Paginasobre/Paginasobre.html" class="py-2">Sobre</a>
+                    <a href="../Paginaprojetos/paginaprojetos.html" class="py-2">Projetos</a>
+                    <a href="../Paginaservicos/paginaservicos.html" class="py-2">Serviços</a>
+                    <a href="#" class="py-2">Parceiros</a>
+                    <a href="https://wa.me/5516992866834" class="py-2">Contato</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div> 
+
+
+
+<!-- Cabeçalho -->
+<header class="header bg-[#f9f9f9] py-16 relative">
+    <div class="absolute top-10 left-1/2 transform -translate-x-1/2 text-center">
+        <!-- Logo -->
+        <div class="flex justify-center mb-4">
+            <div class="w-32 h-32 rounded-full flex items-center justify-center shadow-lg overflow-hidden">
+                <img src="Imagens/logo-jr.png" alt="Logo" class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        <!-- Título -->
+        <h1 class="text-6xl md:text-7xl font-extrabold text-white">
+            PARCEIROS
+        </h1>
+    </div>
+</header>
+
+<section id="FiveSection" class="font-sans py-16 flex justify-center items-center -mt-64">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-center items-center">
+        
+        <!-- Grid de imagens -->
+        <div class="flex flex-wrap justify-center gap-12 mb-8 md:mb-0"> <!-- Aumentei o gap para 12 -->
+            <!-- Parceiro 1 -->
+            <div class="relative w-56 h-40 mb-6 transform transition duration-300 hover:scale-105">
+                <img src="Imagens/logo1.png" alt="Parceiro 2" class="w-full h-full object-contain rounded-lg shadow-lg transition-all duration-300 ease-in-out">
+            </div>
+
+            <!-- Parceiro 2 -->
+            <div class="relative w-56 h-40 mb-6 transform transition duration-300 hover:scale-105">
+                <img src="Imagens/logo2.png" alt="Parceiro 3" class="w-full h-full object-contain rounded-lg shadow-lg transition-all duration-300 ease-in-out">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center opacity-0  transition-opacity duration-300">
+                </div>
+            </div>
+
+            <!-- Parceiro 3 -->
+            <div class="relative w-56 h-40 mb-6 transform transition duration-300 hover:scale-105">
+                <img src="Imagens/logo3.png" alt="Parceiro 4" class="w-full h-full object-contain rounded-lg shadow-lg transition-all duration-300 ease-in-out">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center opacity-0  transition-opacity duration-300">
+                </div>
+            </div>
+
+            <!-- Parceiro 4 -->
+            <div class="relative w-56 h-40 mb-6 transform transition duration-300 hover:scale-105">
+                <img src="Imagens/logo4.png" alt="Parceiro 5" class="w-full h-full object-contain rounded-lg shadow-lg transition-all duration-300 ease-in-out">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center opacity-0  transition-opacity duration-300">
+                </div>
+            </div>
+
+            <!-- Parceiro 5 -->
+            <div class="relative w-56 h-40 mb-6 transform transition duration-300 hover:scale-105">
+                <img src="Imagens/logo5.png" alt="Parceiro 6" class="w-full h-full object-contain rounded-lg shadow-lg transition-all duration-300 ease-in-out">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Seção sobre os parceiros -->
+<section id="partnersAbout" class="py-16 px-4 text-center">
+    <h2 class="text-5xl font-extrabold text-gray-800 mb-8">Sobre nossos Parceiros</h2>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Na JJR Montagens Elétricas, entendemos que nossos parceiros são a chave para o nosso sucesso conjunto. Trabalhamos com empresas de diversos setores, como tecnologia, energia renovável, indústria alimentícia, transporte e comércio de equipamentos industriais.
+        Cada projeto de instalação e manutenção elétrica que realizamos visa aumentar a eficiência, a segurança e a sustentabilidade dos sistemas elétricos de nossos parceiros. Nosso trabalho é mais do que uma simples instalação: é uma colaboração para o crescimento e inovação contínuos de cada parceiro.
+    </p>
+</section>
+
+<!-- Última Seção (Footer) -->
+<section id="SixSection" class="flex flex-col bg-black py-12">
+    <footer class="text-white p-8 flex justify-between items-center container mx-auto">
+        <!-- Logo -->
+        <div class="flex items-center">
+            <div class="w-24 h-24 flex items-center justify-center rounded-full shadow-lg overflow-hidden">
+                <img src="Imagens/logo-jr.png" class="w-full h-full object-cover rounded-full">
+            </div>
+        </div>
+
+        <!-- Informações de contato -->
+        <div class="text-left ml-8 mr-16 italic space-y-4">
+            <p class="text-lg">Endereço: Novo Américo - Américo Brasiliense - SP</p>
+            <p class="text-lg mb-1">Telefone: (16) 99286-6834</p>
+            <p class="text-lg">Email: jremontagens@gmail.com</p>
+        </div>
+    </footer>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuToggle.addEventListener("click", function () {
+            mobileMenu.classList.toggle("open");
+        });
+
+        document.querySelectorAll(".mobile-menu a").forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.remove("open");
+            });
+        });
+    });
+        window.addEventListener("load", function () {
+        document.getElementById("preloader").style.opacity = "0"; // Fade-out mais rápido
+        setTimeout(() => {
+            document.getElementById("preloader").style.display = "none"; // Remove a tela branca rapidamente
+            document.body.style.opacity = "1"; // Fade-in acelerado do conteúdo
+        }, 400); // Reduzi o tempo total para 0.4s
+    });
+
+
+</script>
+
+</body>
+</html>
